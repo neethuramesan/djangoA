@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+     table{
+         width:500px;
+     }
+      tr,td{
+          background-color:white;
+          height:40px;
+          width:180px;
+      }
+      .a{
+          margin-left:130px;
+      }
+      #bg{
+          background-repeat:no-repeat;
+          background-size:cover;
+      }
+    </style>
+</head>
+<body id="bg" style="background-image:url('{% static "images/stud.jpg" %}')";>
+    
+    <form action="{% url 'add_student_details' %}" method="post">
+        {% csrf_token %}
+        <div class="a">
+        <table >
+            <br><br>
+            <h1 style="color:red;">Student Registration </h1>
+            <tr>
+                <td><label>Student Name</td>
+                <td><input type="text" name="student_name"></td>
+            </tr>
+            <tr>
+                <td><label>Address</td>
+                <td><textarea name="address"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Age</td>
+                <td><input type="text" name="age"></td>
+            </tr>
+            <tr>
+                <td><label>Email Address</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td><label>Joining Date</td>
+                <td><input type="date" name="date"></td>
+            </tr>
+            <tr>
+                <td><label>Qualification</td>
+                <td>
+                    <select name="qualification">
+                        <option selected="select your qualifiaction" disabled>Select Your Qualification</option>
+                        <option value="sslc">SSLC</option>
+                        <option value="plustwo">PlusTwo</option>
+                        <option value="degree">Degree</option>
+                        <option value="diploma">Diploma</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="Male"><label>Male</label><br>
+                    <input type="radio" name="gender" value="Female"><label>Female</label><br>
+                    <input type="radio" name="gender" value="Other"><label>Others</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Mobile Number</td>
+                <td><input type="text" name="mobileno"></td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

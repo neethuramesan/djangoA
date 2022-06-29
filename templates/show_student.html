@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    #bg{
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    th,tr{
+        background-color:white;
+    }
+</style>
+<body <body id="bg" style="background-image:url('{% static "images/details.jpg" %}')";>
+    <center>
+    <h1>Student Details....</h1>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>STUDENT NAME</th>
+                <th>EMAIL ADDRESS</th>
+                <th>CONTACT NUMBER</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in students %}
+            <tr>
+                <td><a href="{% url 'show_student_details' s.id %}">{{s.StudentName}}</a></td>
+                <td>{{s.Emailid}}</td>
+                <td>{{s.Mobileno}}</td>
+                <td>
+                    <a href="{% url 'edit_page' s.id %}">Edit</a><br>
+                    <a href="{% url 'delete_page' s.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+</body>
+</html>
