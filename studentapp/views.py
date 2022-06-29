@@ -48,3 +48,5 @@ def delete_page(request,pk):
     student=Student.objects.get(id=pk)
     student.delete()
     return redirect('show_student')
+def addcourse(request):
+    return render(request,'add_course.html')

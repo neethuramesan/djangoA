@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+     table{
+         width:500px;
+     }
+      tr,td{
+          background-color:white;
+          height:40px;
+          width:180px;
+      }
+      .a{
+          margin-left:130px;
+      }
+      #bg{
+          background-repeat:no-repeat;
+          background-size:cover;
+      }
+    </style>
+</head>
+<body id="bg" style="background-image:url('{% static "images/stud.jpg" %}')";>
+    
+    <form>
+        {% csrf_token %}
+        <div class="a">
+        <table >
+            <br><br>
+            <h1 style="color:red;">Add Course </h1>
+            <tr>
+                <td><label>Course Name</td>
+                <td><input type="text" name="student_name"></td>
+            </tr>
+            <tr>
+                <td><label>Fee</td>
+                <td><textarea name="address"></textarea></td>
+            </tr>
+            
+            <tr>
+                <td>
+                </td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
